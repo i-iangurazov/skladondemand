@@ -1,4 +1,4 @@
-import { prisma } from '@qr/db';
+import { prisma, Prisma } from '@qr/db';
 import { formatPrice } from '@/lib/avantech/format';
 import {
   buildOrderItemsSummary,
@@ -21,6 +21,11 @@ type JobRequest = {
   templateName?: string;
   templateLang?: string;
   components?: Array<{ type: 'body'; parameters: Array<{ type: 'text'; text: string }> }>;
+};
+
+const toJsonValue = (value: unknown): Prisma.InputJsonValue | undefined => {
+  if (value === undefined) return undefined;
+  return JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
 };
 
 const parseRecipients = () => {
@@ -195,7 +200,7 @@ export const processNotificationJobs = async (input?: { limit?: number; orderId?
           data: {
             status: 'SENT',
             lastError: null,
-            responseJson: response.responseJson,
+            responseJson: toJsonValue(response.responseJson),
             messageId: response.messageId,
           },
         });
@@ -251,7 +256,7 @@ export const processNotificationJobs = async (input?: { limit?: number; orderId?
         data: {
           status: 'FAILED',
           lastError: error instanceof Error ? error.message : 'Notification failed.',
-          responseJson,
+          responseJson: toJsonValue(responseJson),
           nextRunAt: new Date(Date.now() + backoffMinutes * 60 * 1000),
         },
       });

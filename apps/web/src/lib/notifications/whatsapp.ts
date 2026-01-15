@@ -30,15 +30,17 @@ const getWhatsAppToken = () => {
   return token;
 };
 
-const parseWhatsAppError = (payload: unknown) => {
+const parseWhatsAppError = (payload: unknown): string => {
   if (!payload || typeof payload !== 'object') return 'WhatsApp request failed.';
   const error = (payload as Record<string, unknown>).error as Record<string, unknown> | undefined;
   if (!error) return 'WhatsApp request failed.';
-  const message = typeof error.message === 'string' ? error.message : null;
-  const details =
-    error.error_data && typeof error.error_data === 'object' && typeof (error.error_data as Record<string, unknown>).details === 'string'
-      ? (error.error_data as Record<string, unknown>).details
-      : null;
+  const message = typeof error.message === 'string' ? error.message : '';
+  const errorData = error.error_data;
+  const detailsValue =
+    errorData && typeof errorData === 'object'
+      ? (errorData as Record<string, unknown>).details
+      : undefined;
+  const details = typeof detailsValue === 'string' ? detailsValue : '';
   return message || details || 'WhatsApp request failed.';
 };
 
@@ -48,10 +50,12 @@ export const isTemplateRequiredError = (payload: unknown) => {
   if (!error) return false;
   const code = typeof error.code === 'number' ? error.code : undefined;
   const message = typeof error.message === 'string' ? error.message.toLowerCase() : '';
-  const details =
-    error.error_data && typeof error.error_data === 'object' && typeof (error.error_data as Record<string, unknown>).details === 'string'
-      ? (error.error_data as Record<string, unknown>).details.toLowerCase()
-      : '';
+  const errorData = error.error_data;
+  const detailsValue =
+    errorData && typeof errorData === 'object'
+      ? (errorData as Record<string, unknown>).details
+      : undefined;
+  const details = typeof detailsValue === 'string' ? detailsValue.toLowerCase() : '';
   return code === 131047 || message.includes('template') || details.includes('template') || message.includes('24');
 };
 

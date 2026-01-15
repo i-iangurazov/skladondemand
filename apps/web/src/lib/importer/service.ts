@@ -1,4 +1,4 @@
-import { prisma, Locale } from '@qr/db';
+import { prisma, Locale, Prisma } from '@qr/db';
 import type { ImportCommitResult, ImportRow, PriceMode } from './types';
 import { normalizeWhitespace } from './normalize';
 import { normalizeSku } from './sku';
@@ -18,7 +18,7 @@ export type ImportDb = {
   category: {
     findFirst: (...args: any[]) => Promise<any>;
     create: (...args: any[]) => Promise<any>;
-    update?: (...args: any[]) => Promise<any>;
+    update: (...args: any[]) => Promise<any>;
     aggregate?: (...args: any[]) => Promise<any>;
   };
   categoryTranslation: {
@@ -73,14 +73,14 @@ const buildProductCacheKey = (categoryId: string, baseName: string, key?: string
   key || `${categoryId}:${normalizeWhitespace(baseName).toLowerCase()}`;
 
 const buildLocaleEntries = (input: { ru: string; en?: string; kg?: string }) => {
-  const entries = [{ locale: Locale.ru, name: input.ru }];
+  const entries: Array<{ locale: Locale; name: string }> = [{ locale: Locale.ru, name: input.ru }];
   if (input.en) entries.push({ locale: Locale.en, name: input.en });
   if (input.kg) entries.push({ locale: Locale.kg, name: input.kg });
   return entries;
 };
 
 const buildProductTranslationEntries = (input: ImportRow['product']) => {
-  const entries = [
+  const entries: Array<{ locale: Locale; name: string; description?: string }> = [
     { locale: Locale.ru, name: input.ru, description: input.descriptionRu ?? undefined },
   ];
   if (input.en) entries.push({ locale: Locale.en, name: input.en });
@@ -827,11 +827,11 @@ export const commitImportRows = async (rows: ImportRow[], _priceMode?: PriceMode
     new Set(rows.map((row) => row.category.ru || 'Без категории').map((name) => normalizeWhitespace(name)))
   ).filter(Boolean);
   if (categoryNames.length) {
-    const filters = categoryNames.map((name) => ({
+    const filters: Prisma.CategoryWhereInput[] = categoryNames.map((name) => ({
       translations: {
         some: {
           locale: Locale.ru,
-          name: { equals: name, mode: 'insensitive' },
+          name: { equals: name, mode: Prisma.QueryMode.insensitive },
         },
       },
     }));

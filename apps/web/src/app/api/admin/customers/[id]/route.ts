@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { prisma, UserRole } from '@qr/db';
 import { requireAdmin } from '@/lib/auth/requireAdmin';
@@ -15,11 +15,11 @@ const errorResponse = (errors: FieldError[], status = 400) =>
 const readOptionalString = (value: unknown) => (typeof value === 'string' ? value.trim() : undefined);
 const readOptionalBoolean = (value: unknown) => (typeof value === 'boolean' ? value : undefined);
 
-export async function PATCH(request: Request, context: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   const auth = await requireAdmin(request);
   if (!auth.ok) return auth.response;
 
-  const userId = context.params.id;
+  const { id: userId } = await context.params;
   if (!userId) {
     return errorResponse([{ field: 'id', code: 'ID_REQUIRED', message: 'Customer id is required.' }], 400);
   }

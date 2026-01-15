@@ -35,6 +35,9 @@ const extensionFromFilename = (filename: string) => {
 export async function POST(request: Request) {
   const auth = await requireAdmin(request);
   if (!auth.ok) return auth.response;
+  if (!auth.user) {
+    return NextResponse.json({ code: 'errors.unauthorized' }, { status: 401 });
+  }
 
   const body = await request.json().catch(() => null);
   const folderId = typeof body?.folderId === 'string' && body.folderId.trim().length > 0

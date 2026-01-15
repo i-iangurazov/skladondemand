@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
-import { UserRole } from '@qr/db';
+import { UserRole, type User } from '@qr/db';
 import { getSessionUser } from './session';
 
-export const requireAdmin = async (request?: Request) => {
+type RequireAdminResult =
+  | { ok: true; user: User }
+  | { ok: false; response: NextResponse };
+
+export const requireAdmin = async (request?: Request): Promise<RequireAdminResult> => {
   const user = await getSessionUser(request);
   if (!user) {
     return { ok: false, response: NextResponse.json({ code: 'errors.unauthorized' }, { status: 401 }) };

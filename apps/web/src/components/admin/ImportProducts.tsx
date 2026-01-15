@@ -50,7 +50,7 @@ const emptyMapping: CsvMapping = {
   descriptionRu: undefined,
 };
 
-const hasError = (row: ImportRow) => row.issues?.some((issue) => issue.level === 'error');
+const hasError = (row: ImportRow) => row.issues?.some((issue) => issue.level === 'error') ?? false;
 
 const escapeCsvValue = (value: string) => {
   if (value.includes('"') || value.includes(',') || value.includes('\n')) {

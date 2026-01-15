@@ -1,8 +1,9 @@
-import { prisma, ImportJobStatus, ImportRowStatus, ImportSourceType } from '@qr/db';
+import { prisma, ImportJobStatus, ImportRowStatus, ImportSourceType, Prisma } from '@qr/db';
 import type { CsvMapping, ImportIssue, ImportRow } from './types';
 import { normalizeSku } from './sku';
 
-const sanitizeJson = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
+const sanitizeJson = <T>(value: T): Prisma.InputJsonValue =>
+  JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
 
 const hasRowErrors = (row: ImportRow) =>
   row.issues?.some((issue) => issue.level === 'error') ?? false;

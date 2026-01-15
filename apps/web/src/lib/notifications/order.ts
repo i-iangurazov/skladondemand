@@ -54,20 +54,21 @@ export type OrderUserSnapshot = {
 
 const normalizeItems = (items: unknown): OrderLineItem[] => {
   if (!Array.isArray(items)) return [];
-  return items
-    .map((item) => {
-      if (!item || typeof item !== 'object') return null;
-      const record = item as Record<string, unknown>;
-      const productName = typeof record.productName === 'string' ? record.productName : '';
-      if (!productName) return null;
-      const variantLabel = typeof record.variantLabel === 'string' ? record.variantLabel : null;
-      const quantity = typeof record.quantity === 'number' && Number.isFinite(record.quantity) ? record.quantity : 0;
-      const unitPrice = typeof record.unitPrice === 'number' && Number.isFinite(record.unitPrice) ? record.unitPrice : 0;
-      const subtotal = typeof record.subtotal === 'number' && Number.isFinite(record.subtotal) ? record.subtotal : unitPrice * quantity;
-      if (quantity <= 0) return null;
-      return { productName, variantLabel, quantity, unitPrice, subtotal };
-    })
-    .filter((item): item is OrderLineItem => Boolean(item));
+  const normalized: OrderLineItem[] = [];
+  for (const item of items) {
+    if (!item || typeof item !== 'object') continue;
+    const record = item as Record<string, unknown>;
+    const productName = typeof record.productName === 'string' ? record.productName : '';
+    if (!productName) continue;
+    const variantLabel = typeof record.variantLabel === 'string' ? record.variantLabel : null;
+    const quantity = typeof record.quantity === 'number' && Number.isFinite(record.quantity) ? record.quantity : 0;
+    const unitPrice = typeof record.unitPrice === 'number' && Number.isFinite(record.unitPrice) ? record.unitPrice : 0;
+    const subtotal =
+      typeof record.subtotal === 'number' && Number.isFinite(record.subtotal) ? record.subtotal : unitPrice * quantity;
+    if (quantity <= 0) continue;
+    normalized.push({ productName, variantLabel, quantity, unitPrice, subtotal });
+  }
+  return normalized;
 };
 
 const buildItemBlock = (item: OrderLineItem, locale: Language, currencyLabel: string) => {

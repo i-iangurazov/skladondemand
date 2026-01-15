@@ -1,4 +1,4 @@
-import { prisma } from '@qr/db';
+import { prisma, Prisma } from '@qr/db';
 
 type AuditInput = {
   userId: string;
@@ -9,12 +9,15 @@ type AuditInput = {
 
 export const logAdminAction = async ({ userId, action, importJobId, metadata }: AuditInput) => {
   try {
+    const sanitizedMetadata = metadata
+      ? (JSON.parse(JSON.stringify(metadata)) as Prisma.InputJsonValue)
+      : undefined;
     await prisma.importAuditLog.create({
       data: {
         userId,
         action,
         importJobId,
-        metadata,
+        metadata: sanitizedMetadata,
       },
     });
   } catch (error) {

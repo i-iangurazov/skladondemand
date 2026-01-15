@@ -62,7 +62,7 @@ export async function POST(request: Request) {
 
   const applyCloudshopCommitOptions = (rows: ReturnType<typeof importRowsFromDb>) => {
     const skipped: Array<{ rowId: string; sku?: string; message: string }> = [];
-    const updated = rows.map((row) => {
+    const updated: Array<typeof rows[number] | null> = rows.map((row) => {
       const raw = row.raw && typeof row.raw === 'object' ? (row.raw as Record<string, unknown>) : null;
       const priceRetail = raw
         ? resolveCloudshopRetailPrice(raw, commitOptions.priceStrategy)
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
         ? resolveCloudshopWholesalePrice(raw, commitOptions.wholesaleLocation)
         : row.variant.priceWholesale ?? null;
 
-      const nextRow = {
+      const nextRow: typeof row = {
         ...row,
         variant: {
           ...row.variant,
@@ -103,7 +103,7 @@ export async function POST(request: Request) {
     });
 
     return {
-      rows: updated.filter((row): row is typeof rows[number] => Boolean(row)),
+      rows: updated.filter((row): row is typeof rows[number] => row !== null),
       skipped,
     };
   };
