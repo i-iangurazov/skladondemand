@@ -1,0 +1,609 @@
+{
+  "common": {
+    "meta": {
+      "title": "Авантехник",
+      "description": "Fast plumbing ordering interface"
+    },
+    "actions": {
+      "activate": "Activate",
+      "add": "Add",
+      "addToCart": "Add to cart",
+      "callWaiter": "Call waiter",
+      "cancel": "Cancel",
+      "clearFilters": "Clear filters",
+      "close": "Close",
+      "copyLink": "Copy link",
+      "deactivate": "Deactivate",
+      "delete": "Delete",
+      "download": "Download",
+      "edit": "Edit",
+      "logout": "Log out",
+      "open": "Open",
+      "refresh": "Refresh",
+      "requestBill": "Request bill",
+      "save": "Save",
+      "sendToKitchen": "Send to kitchen",
+      "signIn": "Sign in",
+      "start": "Start"
+    },
+    "labels": {
+      "cart": "Cart",
+      "category": "Category",
+      "code": "Code",
+      "currency": "som",
+      "description": "Description",
+      "dialog": "Dialog",
+      "filters": "Filters",
+      "items": "Items",
+      "max": "Max",
+      "menu": "Menu",
+      "min": "Min",
+      "name": "Name",
+      "order": "Order",
+      "payments": "Payments",
+      "qr": "QR",
+      "reason": "Reason",
+      "role": "Role",
+      "slug": "Slug",
+      "status": "Status",
+      "table": "Table",
+      "timezone": "Timezone",
+      "tip": "Tip",
+      "toPay": "To pay",
+      "user": "User",
+      "venue": "Venue"
+    },
+    "filters": {
+      "allRoles": "All roles",
+      "allStatuses": "All statuses"
+    },
+    "language": {
+      "label": "Language",
+      "options": {
+        "en": "EN",
+        "ru": "RU",
+        "kg": "KG"
+      }
+    },
+    "roles": {
+      "ADMIN": "Admin",
+      "KITCHEN": "Kitchen",
+      "WAITER": "Waiter",
+      "VENUE_ADMIN": "Venue admin",
+      "PLATFORM_OWNER": "Platform owner",
+      "kitchen": "Kitchen",
+      "waiter": "Waiter"
+    },
+    "states": {
+      "connected": "Connected",
+      "empty": "Nothing here yet",
+      "inStock": "In stock",
+      "loading": "Loading...",
+      "noImage": "No image",
+      "notAvailable": "Not available",
+      "outOfStock": "Out of stock",
+      "redirecting": "Redirecting...",
+      "unavailable": "Unavailable"
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "invalidCredentials": "Invalid credentials",
+    "offline": "You're offline",
+    "offlineHint": "Check your connection and try again.",
+    "forbidden": "Forbidden",
+    "rateLimited": "Too many attempts. Try again later.",
+    "unauthorized": "Unauthorized",
+    "unauthorizedHint": "You don't have access to this area."
+  },
+  "forms": {
+    "placeholders": {
+      "capacity": "Capacity",
+      "category": "Select category",
+      "categoryId": "Category ID",
+      "code": "Code",
+      "comment": "Comment",
+      "currency": "som",
+      "email": "Email",
+      "imageUrl": "https://...",
+      "name": "Name",
+      "optional": "Optional",
+      "password": "Password",
+      "passwordOptional": "Password (optional)",
+      "peopleCount": "Guests count",
+      "phone": "Phone",
+      "priceCents": "Price (cents)",
+      "searchMenu": "Search menu",
+      "searchOrders": "Search orders",
+      "searchStaff": "Search staff",
+      "searchTables": "Search tables",
+      "searchUsers": "Search users",
+      "sharesToPay": "Shares to pay",
+      "slug": "Slug",
+      "timezone": "Timezone",
+      "tipCustom": "Custom tip",
+      "totalShares": "Total shares"
+    },
+    "validation": {
+      "peopleCountRequired": "Please enter number of guests.",
+      "totalSharesRequired": "Please enter total shares."
+    }
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "guest": {
+      "ordering": "Ordering",
+      "preparing": "Preparing",
+      "served": "Served",
+      "outstanding": "Outstanding"
+    },
+    "order": {
+      "NEW": "New",
+      "ACCEPTED": "Accepted",
+      "IN_PROGRESS": "In progress",
+      "READY": "Ready",
+      "SERVED": "Served",
+      "CANCELLED": "Cancelled"
+    },
+    "payment": {
+      "CREATED": "Created",
+      "PENDING": "Pending",
+      "PAID": "Paid",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled"
+    }
+  },
+  "guest": {
+    "connect": {
+      "title": "Join table",
+      "hint": "Enter your name and the number of guests to start ordering."
+    },
+    "menu": {
+      "subtitle": "Browse and add items to your cart.",
+      "modifiersRequired": "Modifiers required",
+      "modifiersOptional": "Modifiers optional"
+    },
+    "orders": {
+      "title": "Sent orders",
+      "subtitle": "Track what you've already sent to the kitchen.",
+      "empty": "No sent orders yet.",
+      "paidAmount": "Paid: {amount}",
+      "paidStatus": "Paid",
+      "remainingAmount": "Remaining: {amount}"
+    },
+    "cart": {
+      "title": "Your cart",
+      "subtitle": "Review items before sending.",
+      "draftTitle": "Draft items",
+      "itemsCount": "{count} items",
+      "draftEmpty": "Your cart is empty.",
+      "sentTitle": "Sent orders",
+      "sentEmpty": "No sent orders yet.",
+      "paymentTitle": "Payment",
+      "paymentModeTitle": "Payment mode",
+      "fullBill": "Full bill",
+      "splitEvenly": "Split evenly",
+      "splitHelp": "Each guest pays the same amount.",
+      "selectedItems": "Selected items",
+      "shareCount": "{count} shares",
+      "quoteTitle": "Quote",
+      "refreshQuote": "Refresh quote",
+      "quoteEmpty": "Select items to get a quote.",
+      "quoteShares": "{shares} = {total}",
+      "quoteUpdated": "Quote updated {time}",
+      "paySelectedItems": "Pay selected items",
+      "addItemsFirst": "Add items first to calculate payment.",
+      "tipNone": "No tip",
+      "tipCustom": "Custom",
+      "tipPercent": "{percent}% tip",
+      "sending": "Sending...",
+      "processing": "Processing...",
+      "increaseQty": "Increase quantity",
+      "decreaseQty": "Decrease quantity",
+      "removeItem": "Remove",
+      "payAmount": "Pay {amount}"
+    },
+    "payment": {
+      "nothingToPay": "Nothing to pay yet.",
+      "selectItemsRequired": "Select items to pay.",
+      "stateChanged": "Payment state updated.",
+      "itemsAlreadyPaid": "Some items are already paid."
+    },
+    "outstanding": {
+      "title": "Outstanding balance",
+      "remaining": "Remaining {amount}"
+    },
+    "sessionClosed": {
+      "title": "Session closed",
+      "defaultReason": "This session has ended."
+    },
+    "debug": {
+      "socket": "Socket",
+      "session": "Session",
+      "stateVersion": "State version",
+      "lastEvent": "Last event",
+      "lastState": "Last state",
+      "lastRefetch": "Last refetch",
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "none": "None"
+    },
+    "errors": {
+      "menuLoadFailed": "Failed to load menu.",
+      "joinSessionFailed": "Failed to join session.",
+      "addToCartFailed": "Failed to add item.",
+      "updateCartFailed": "Failed to update cart.",
+      "removeItemFailed": "Failed to remove item.",
+      "submitOrderFailed": "Failed to send order.",
+      "notifyStaffFailed": "Failed to notify staff.",
+      "paymentCreateFailed": "Failed to create payment.",
+      "splitPlanFailed": "Failed to split payment.",
+      "modifiersRequired": "Please select required modifiers."
+    },
+    "toasts": {
+      "addedToCart": "Added to cart",
+      "orderSent": "Order #{number} sent",
+      "orderReady": "Order #{number} is ready",
+      "paymentConfirmed": "Payment confirmed",
+      "paymentCreated": "Payment created: {amount}",
+      "paymentQuoteUpdated": "Payment quote updated",
+      "waiterNotified": "Waiter notified"
+    }
+  },
+  "kitchen": {
+    "title": "Kitchen",
+    "lanes": {
+      "new": "New",
+      "preparing": "Preparing",
+      "ready": "Ready",
+      "served": "Served"
+    },
+    "actions": {
+      "acceptOrder": "Accept",
+      "startCooking": "Start cooking",
+      "markReady": "Mark ready"
+    },
+    "emptyLane": "No orders in this lane."
+  },
+  "staff": {
+    "readyTitle": "Ready orders",
+    "calls": {
+      "title": "Assistance calls",
+      "empty": "No calls right now."
+    },
+    "orders": {
+      "empty": "No ready orders."
+    },
+    "actions": {
+      "markServed": "Mark served"
+    },
+    "filters": {
+      "searchPlaceholder": "Search orders or tables",
+      "viewLabel": "View",
+      "viewAll": "All",
+      "viewOrders": "Orders",
+      "viewCalls": "Calls",
+      "sortLabel": "Sort",
+      "sortNewest": "Newest",
+      "sortOldest": "Oldest"
+    },
+    "toasts": {
+      "orderReady": "Order #{number} ready for table {table}",
+      "callWaiter": "Call from table {table}",
+      "callWaiterWithMessage": "Table {table}: {message}"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin login",
+      "demoEmail": "admin@example.com",
+      "demoPassword": "Admin123!"
+    },
+    "header": {
+      "signedInAs": "Signed in as",
+      "revenue": "Revenue: {amount}"
+    },
+    "tabs": {
+      "tables": "Tables",
+      "menu": "Menu",
+      "users": "Users",
+      "orders": "Orders",
+      "analytics": "Analytics"
+    },
+    "menu": {
+      "subtitle": "Manage menu items",
+      "addSample": "Add sample menu",
+      "seeding": "Seeding...",
+      "addItem": "Add item",
+      "itemsCount": "{count} items",
+      "empty": "No menu items yet."
+    },
+    "tables": {
+      "title": "Create table",
+      "addButton": "Add table",
+      "listTitle": "Tables",
+      "emptyAll": "No tables yet.",
+      "emptyFiltered": "No tables match your filters."
+    },
+    "users": {
+      "title": "Add staff",
+      "addButton": "Add user",
+      "listTitle": "Staff",
+      "emptyAll": "No staff yet.",
+      "emptyFiltered": "No staff match your filters."
+    },
+    "orders": {
+      "title": "Orders",
+      "total": "Total: {amount}",
+      "emptyAll": "No orders yet.",
+      "emptyFiltered": "No orders match your filters."
+    },
+    "analytics": {
+      "ordersByStatus": "Orders by status"
+    },
+    "dialogs": {
+      "tableQrTitle": "Table QR",
+      "qrAlt": "Table QR code",
+      "qrFilename": "table-qr.png"
+    },
+    "toasts": {
+      "tableCreated": "Table created",
+      "userCreated": "User created",
+      "menuItemAdded": "Menu item added",
+      "sampleMenuAdded": "Sample menu added"
+    },
+    "errors": {
+      "loadAdminData": "Failed to load admin data.",
+      "loadTables": "Failed to load tables.",
+      "loadStaff": "Failed to load staff.",
+      "loadMenu": "Failed to load menu.",
+      "loadOrders": "Failed to load orders.",
+      "createTable": "Failed to create table.",
+      "updateTable": "Failed to update table.",
+      "deleteTable": "Failed to delete table.",
+      "loadQr": "Failed to load QR code.",
+      "createUser": "Failed to create user.",
+      "updateUser": "Failed to update user.",
+      "addMenuItem": "Failed to add menu item.",
+      "seedMenu": "Failed to seed menu."
+    }
+  },
+  "owner": {
+    "nav": {
+      "title": "Owner console",
+      "venues": "Venues",
+      "analytics": "Analytics"
+    },
+    "header": {
+      "title": "Platform owner"
+    },
+    "states": {
+      "loading": "Loading owner console..."
+    },
+    "login": {
+      "title": "Platform owner login",
+      "subtitle": "Access the multi-venue console.",
+      "demoEmail": "owner@example.com",
+      "demoPassword": "Owner123!"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "subtitle": "Global overview across venues.",
+      "orders30d": "Orders last 30 days",
+      "topItems": "Top items",
+      "revenue": "Revenue"
+    },
+    "venues": {
+      "title": "Venues",
+      "subtitle": "Manage restaurants on the platform.",
+      "filters": {
+        "searchPlaceholder": "Search tables or users",
+        "allVenues": "All venues"
+      },
+      "actions": {
+        "create": "Create venue",
+        "creating": "Creating..."
+      },
+      "empty": "No venues yet."
+    },
+    "tables": {
+      "title": "Tables",
+      "subtitle": "Across all venues",
+      "actions": {
+        "goToVenue": "Go to venue"
+      },
+      "empty": "No tables yet."
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "Staff across venues",
+      "actions": {
+        "invite": "Invite staff"
+      },
+      "empty": "No users yet."
+    },
+    "venue": {
+      "tabs": {
+        "overview": "Overview",
+        "menu": "Menu",
+        "tables": "Tables",
+        "users": "Users",
+        "analytics": "Analytics"
+      },
+      "menu": {
+        "subtitle": "Manage dishes",
+        "addSample": "Add sample menu",
+        "seeding": "Seeding...",
+        "addItem": "Add item",
+        "itemsCount": "{count} items",
+        "priceWithSort": "{price} · sort {order}",
+        "emptyCategory": "No items in this category.",
+        "emptyMenu": "No menu yet. Seed a sample or add an item.",
+        "confirmDelete": "Delete this item?",
+        "fields": {
+          "priceCents": "Price (cents)",
+          "sortOrder": "Sort order",
+          "imageUrl": "Image URL"
+        },
+        "dialog": {
+          "createTitle": "Add menu item",
+          "editTitle": "Edit menu item",
+          "description": "Manage item details, pricing, and modifiers."
+        },
+        "modifiers": {
+          "title": "Modifiers",
+          "addGroup": "Add group",
+          "groupName": "Group name",
+          "required": "Required",
+          "optionName": "Option name",
+          "addOption": "Add option",
+          "empty": "No modifiers. Add groups if needed."
+        },
+        "validation": {
+          "required": "Name, category, and price are required.",
+          "imageUrl": "Image URL must start with http/https",
+          "price": "Price must be a positive number (cents)"
+        }
+      },
+      "tables": {
+        "actions": {
+          "add": "Add table"
+        },
+        "emptyAll": "No tables yet. Add one above.",
+        "emptyFiltered": "No tables match your filters."
+      },
+      "users": {
+        "actions": {
+          "add": "Add user"
+        },
+        "emptyAll": "No users yet. Add one above.",
+        "emptyFiltered": "No users match your filters.",
+        "placeholders": {
+          "role": "Role (VENUE_ADMIN)"
+        }
+      },
+      "analytics": {
+        "orders7d": "Orders last 7 days",
+        "topItems": "Top items"
+      }
+    },
+    "toasts": {
+      "loggedIn": "Logged in",
+      "venueCreated": "Venue created",
+      "tableCreated": "Table created",
+      "userCreated": "User created",
+      "menuItemCreated": "Item created",
+      "menuItemUpdated": "Item updated",
+      "menuItemDeleted": "Item deleted",
+      "menuItemActivated": "Item activated",
+      "menuItemDeactivated": "Item deactivated",
+      "sampleMenuAdded": "Sample menu added"
+    },
+    "errors": {
+      "loginFailed": "Login failed",
+      "loadAnalytics": "Failed to load analytics.",
+      "loadVenues": "Failed to load venues.",
+      "loadVenue": "Failed to load venue.",
+      "loadTables": "Failed to load tables.",
+      "loadUsers": "Failed to load users.",
+      "loadMenu": "Failed to load menu.",
+      "updateMenuItem": "Failed to update menu item.",
+      "updateSortOrder": "Failed to update order.",
+      "saveMenuItem": "Failed to save menu item.",
+      "deleteMenuItem": "Failed to delete menu item.",
+      "createVenue": "Failed to create venue.",
+      "createTable": "Failed to create table.",
+      "createUser": "Failed to create user.",
+      "seedMenu": "Failed to seed menu."
+    }
+  },
+  "toastTest": {
+    "title": "Toast palette preview",
+    "buttons": {
+      "default": "Default",
+      "success": "Success",
+      "error": "Error"
+    },
+    "messages": {
+      "default": "Default toast",
+      "success": "Success toast",
+      "error": "Error toast"
+    }
+  },
+  "home": {
+    "headline": "To get started, edit the page.tsx file.",
+    "description": "Looking for a starting point or more instructions? Head over to <templates>Templates</templates> or the <learning>Learning</learning> center.",
+    "actions": {
+      "deployNow": "Deploy Now",
+      "documentation": "Documentation"
+    },
+    "alt": {
+      "nextLogo": "Next.js logo",
+      "vercelLogo": "Vercel logo"
+    }
+  },
+  "avantech": {
+    "brand": "Авантехник",
+    "tagline": "Fast plumbing order",
+    "search": {
+      "placeholder": "Search products or variants",
+      "empty": "No matches found",
+      "categoryLabel": "Category",
+      "allCategories": "All categories"
+    },
+    "actions": {
+      "selectVariant": "Select {variant}",
+      "increaseQty": "Increase quantity",
+      "decreaseQty": "Decrease quantity"
+    },
+    "auth": {
+      "title": "Sign in",
+      "subtitle": "Enter your phone and password to continue.",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+996XXXXXXXXX",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "invalidPhone": "Enter the phone in +996XXXXXXXXX format.",
+      "required": "Please fill in all fields.",
+      "helper": "Format: +996XXXXXXXXX"
+    },
+    "cart": {
+      "title": "Your cart",
+      "subtitle": "Review items and send to Telegram.",
+      "empty": "Cart is empty.",
+      "total": "Total",
+      "open": "Cart",
+      "order": "Order",
+      "sending": "Sending...",
+      "orderSuccess": "Order sent to Telegram.",
+      "orderFailed": "Failed to send order."
+    },
+    "attributes": {
+      "diameter": "Diameter",
+      "thread": "Thread",
+      "length": "Length",
+      "pressure": "Pressure",
+      "angle": "Angle",
+      "width": "Width",
+      "volume": "Volume",
+      "material": "Material"
+    },
+    "telegram": {
+      "title": "Авантехник Order",
+      "customer": "Customer",
+      "customerName": "Name",
+      "customerPhone": "Phone",
+      "customerAddress": "Address",
+      "customerGuest": "Guest",
+      "date": "Date",
+      "total": "Total",
+      "empty": "Order is empty.",
+      "configMissing": "Telegram is not configured.",
+      "failed": "Telegram request failed.",
+      "invalidPayload": "Invalid order payload."
+    }
+  }
+}

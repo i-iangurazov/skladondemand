@@ -1,0 +1,609 @@
+{
+  "common": {
+    "meta": {
+      "title": "Авантехник",
+      "description": "Сантехника үчүн ыкчам буйрутма интерфейси"
+    },
+    "actions": {
+      "activate": "Активдештирүү",
+      "add": "Кошуу",
+      "addToCart": "Себетке кошуу",
+      "callWaiter": "Официантты чакыруу",
+      "cancel": "Жокко чыгаруу",
+      "clearFilters": "Чыпкаларды тазалоо",
+      "close": "Жабуу",
+      "copyLink": "Шилтемени көчүрүү",
+      "deactivate": "Деактивдештирүү",
+      "delete": "Өчүрүү",
+      "download": "Жүктөө",
+      "edit": "Түзөтүү",
+      "logout": "Чыгуу",
+      "open": "Ачуу",
+      "refresh": "Жаңыртуу",
+      "requestBill": "Эсепти сураңыз",
+      "save": "Сактоо",
+      "sendToKitchen": "Ашканага жөнөтүү",
+      "signIn": "Кирүү",
+      "start": "Баштоо"
+    },
+    "labels": {
+      "cart": "Себет",
+      "category": "Категория",
+      "code": "Код",
+      "currency": "сом",
+      "description": "Сүрөттөмө",
+      "dialog": "Диалог",
+      "filters": "Чыпкалар",
+      "items": "Позициялар",
+      "max": "Макс",
+      "menu": "Меню",
+      "min": "Мин",
+      "name": "Аты",
+      "order": "Буйрутма",
+      "payments": "Төлөмдөр",
+      "qr": "QR",
+      "reason": "Себеби",
+      "role": "Роль",
+      "slug": "Слаг",
+      "status": "Статус",
+      "table": "Стол",
+      "timezone": "Убакыт алкагы",
+      "tip": "Чаевые",
+      "toPay": "Төлөөгө",
+      "user": "Колдонуучу",
+      "venue": "Мекеме"
+    },
+    "filters": {
+      "allRoles": "Бардык ролдор",
+      "allStatuses": "Бардык статустар"
+    },
+    "language": {
+      "label": "Тил",
+      "options": {
+        "en": "EN",
+        "ru": "RU",
+        "kg": "KG"
+      }
+    },
+    "roles": {
+      "ADMIN": "Админ",
+      "KITCHEN": "Ашкана",
+      "WAITER": "Официант",
+      "VENUE_ADMIN": "Мекеме админи",
+      "PLATFORM_OWNER": "Платформанын ээси",
+      "kitchen": "Ашкана",
+      "waiter": "Официант"
+    },
+    "states": {
+      "connected": "Туташты",
+      "empty": "Азырынча бош",
+      "inStock": "Бар",
+      "loading": "Жүктөлүүдө...",
+      "noImage": "Сүрөт жок",
+      "notAvailable": "Жеткиликсиз",
+      "outOfStock": "Жок",
+      "redirecting": "Багытталууда...",
+      "unavailable": "Жеткиликсиз"
+    }
+  },
+  "errors": {
+    "generic": "Ката кетти",
+    "invalidCredentials": "Туура эмес маалыматтар",
+    "offline": "Байланыш жок",
+    "offlineHint": "Интернетти текшерип кайра аракет кылыңыз.",
+    "forbidden": "Кирүүгө тыюу салынган",
+    "rateLimited": "Өтө көп аракет. Кийинчерээк кайра аракет кылыңыз.",
+    "unauthorized": "Уруксат жок",
+    "unauthorizedHint": "Бул жерге кирүүгө укугуңуз жок."
+  },
+  "forms": {
+    "placeholders": {
+      "capacity": "Сыйымдуулук",
+      "category": "Категорияны тандаңыз",
+      "categoryId": "Категория ID",
+      "code": "Код",
+      "comment": "Комментарий",
+      "currency": "сом",
+      "email": "Email",
+      "imageUrl": "https://...",
+      "name": "Аты",
+      "optional": "Милдеттүү эмес",
+      "password": "Сырсөз",
+      "passwordOptional": "Сырсөз (милдеттүү эмес)",
+      "peopleCount": "Коноктор саны",
+      "phone": "Телефон",
+      "priceCents": "Баасы (цент менен)",
+      "searchMenu": "Менюдан издөө",
+      "searchOrders": "Буйрутмаларды издөө",
+      "searchStaff": "Персоналды издөө",
+      "searchTables": "Столдорду издөө",
+      "searchUsers": "Колдонуучуларды издөө",
+      "sharesToPay": "Төлөнө турган үлүштөр",
+      "slug": "Слаг",
+      "timezone": "Убакыт алкагы",
+      "tipCustom": "Өзүңүздүн чаевые",
+      "totalShares": "Жалпы үлүштөр"
+    },
+    "validation": {
+      "peopleCountRequired": "Коноктор санын жазыңыз.",
+      "totalSharesRequired": "Жалпы үлүштөрдү жазыңыз."
+    }
+  },
+  "status": {
+    "active": "Активдүү",
+    "inactive": "Активдүү эмес",
+    "guest": {
+      "ordering": "Буйрутма",
+      "preparing": "Даярдалууда",
+      "served": "Берилди",
+      "outstanding": "Төлөнө элек"
+    },
+    "order": {
+      "NEW": "Жаңы",
+      "ACCEPTED": "Кабыл алынды",
+      "IN_PROGRESS": "Даярдалууда",
+      "READY": "Даяр",
+      "SERVED": "Берилди",
+      "CANCELLED": "Жокко чыгарылды"
+    },
+    "payment": {
+      "CREATED": "Түзүлдү",
+      "PENDING": "Күтүүдө",
+      "PAID": "Төлөндү",
+      "FAILED": "Ишке ашкан жок",
+      "CANCELLED": "Жокко чыгарылды"
+    }
+  },
+  "guest": {
+    "connect": {
+      "title": "Столго кошулуу",
+      "hint": "Атыңызды жана коноктор санын киргизиңиз."
+    },
+    "menu": {
+      "subtitle": "Тандап, себетке кошуңуз.",
+      "modifiersRequired": "Модификаторлор талап кылынат",
+      "modifiersOptional": "Модификаторлор ыктыярдуу"
+    },
+    "orders": {
+      "title": "Жөнөтүлгөн буйрутмалар",
+      "subtitle": "Ашканага жөнөтүлгөн буйрутмаларды көрүңүз.",
+      "empty": "Азырынча жөнөтүлгөн буйрутма жок.",
+      "paidAmount": "Төлөнгөн: {amount}",
+      "paidStatus": "Төлөнгөн",
+      "remainingAmount": "Калганы: {amount}"
+    },
+    "cart": {
+      "title": "Себет",
+      "subtitle": "Жөнөтүүдөн мурун текшериңиз.",
+      "draftTitle": "Чийме",
+      "itemsCount": "{count} позиция",
+      "draftEmpty": "Себет бош.",
+      "sentTitle": "Жөнөтүлгөн буйрутмалар",
+      "sentEmpty": "Азырынча жок.",
+      "paymentTitle": "Төлөм",
+      "paymentModeTitle": "Төлөм режими",
+      "fullBill": "Толук эсеп",
+      "splitEvenly": "Тең бөлүү",
+      "splitHelp": "Ар бир конок бирдей төлөйт.",
+      "selectedItems": "Тандалган позициялар",
+      "shareCount": "{count} үлүш",
+      "quoteTitle": "Эсеп",
+      "refreshQuote": "Жаңыртуу",
+      "quoteEmpty": "Позицияларды тандаңыз.",
+      "quoteShares": "{shares} = {total}",
+      "quoteUpdated": "{time} жаңырды",
+      "paySelectedItems": "Тандалгандарды төлөө",
+      "addItemsFirst": "Адегенде позиция кошуңуз.",
+      "tipNone": "Чаевые жок",
+      "tipCustom": "Өзүңүз",
+      "tipPercent": "{percent}% чаевые",
+      "sending": "Жөнөтүлүүдө...",
+      "processing": "Иштетилүүдө...",
+      "increaseQty": "Көбөйтүү",
+      "decreaseQty": "Азайтуу",
+      "removeItem": "Өчүрүү",
+      "payAmount": "{amount} төлөө"
+    },
+    "payment": {
+      "nothingToPay": "Азырынча төлөй турган жок.",
+      "selectItemsRequired": "Төлөө үчүн позиция тандаңыз.",
+      "stateChanged": "Төлөм абалы жаңырды.",
+      "itemsAlreadyPaid": "Айрым позициялар төлөнгөн."
+    },
+    "outstanding": {
+      "title": "Карыз",
+      "remaining": "Калганы {amount}"
+    },
+    "sessionClosed": {
+      "title": "Сессия жабылды",
+      "defaultReason": "Бул сессия аяктады."
+    },
+    "debug": {
+      "socket": "Сокет",
+      "session": "Сессия",
+      "stateVersion": "Абалынын версиясы",
+      "lastEvent": "Акыркы окуя",
+      "lastState": "Акыркы абал",
+      "lastRefetch": "Акыркы жаңыртуу",
+      "connected": "Туташты",
+      "disconnected": "Ажыратылды",
+      "none": "Жок"
+    },
+    "errors": {
+      "menuLoadFailed": "Меню жүктөлгөн жок.",
+      "joinSessionFailed": "Сессияга кошулуу ишке ашкан жок.",
+      "addToCartFailed": "Позиция кошулбай калды.",
+      "updateCartFailed": "Себет жаңырган жок.",
+      "removeItemFailed": "Позиция өчүрүлгөн жок.",
+      "submitOrderFailed": "Буйрутма жөнөтүлгөн жок.",
+      "notifyStaffFailed": "Персонал кабарланбады.",
+      "paymentCreateFailed": "Төлөм түзүлгөн жок.",
+      "splitPlanFailed": "Төлөм бөлүнгөн жок.",
+      "modifiersRequired": "Милдеттүү модификаторлорду тандаңыз."
+    },
+    "toasts": {
+      "addedToCart": "Себетке кошулду",
+      "orderSent": "Буйрутма #{number} жөнөтүлдү",
+      "orderReady": "Буйрутма #{number} даяр",
+      "paymentConfirmed": "Төлөм тастыкталды",
+      "paymentCreated": "Төлөм түзүлдү: {amount}",
+      "paymentQuoteUpdated": "Эсеп жаңырды",
+      "waiterNotified": "Официант чакырылды"
+    }
+  },
+  "kitchen": {
+    "title": "Ашкана",
+    "lanes": {
+      "new": "Жаңы",
+      "preparing": "Даярдалууда",
+      "ready": "Даяр",
+      "served": "Берилди"
+    },
+    "actions": {
+      "acceptOrder": "Кабыл алуу",
+      "startCooking": "Даярдоону баштоо",
+      "markReady": "Даяр деп белгилөө"
+    },
+    "emptyLane": "Бул тилкеде буйрутма жок."
+  },
+  "staff": {
+    "readyTitle": "Даяр буйрутмалар",
+    "calls": {
+      "title": "Чакыруулар",
+      "empty": "Чакыруу жок."
+    },
+    "orders": {
+      "empty": "Даяр буйрутма жок."
+    },
+    "actions": {
+      "markServed": "Берилди деп белгилөө"
+    },
+    "filters": {
+      "searchPlaceholder": "Буйрутма же стол издөө",
+      "viewLabel": "Көрсөтүү",
+      "viewAll": "Баары",
+      "viewOrders": "Буйрутмалар",
+      "viewCalls": "Чакыруулар",
+      "sortLabel": "Иреттөө",
+      "sortNewest": "Жаңылары",
+      "sortOldest": "Эскилери"
+    },
+    "toasts": {
+      "orderReady": "Буйрутма #{number} даяр, стол {table}",
+      "callWaiter": "Стол {table} чакырды",
+      "callWaiterWithMessage": "Стол {table}: {message}"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Админ кирүү",
+      "demoEmail": "admin@example.com",
+      "demoPassword": "Admin123!"
+    },
+    "header": {
+      "signedInAs": "Кирдиңиз",
+      "revenue": "Түшүм: {amount}"
+    },
+    "tabs": {
+      "tables": "Столдор",
+      "menu": "Меню",
+      "users": "Колдонуучулар",
+      "orders": "Буйрутмалар",
+      "analytics": "Аналитика"
+    },
+    "menu": {
+      "subtitle": "Менюну башкаруу",
+      "addSample": "Үлгү меню кошуу",
+      "seeding": "Кошулууда...",
+      "addItem": "Позиция кошуу",
+      "itemsCount": "{count} позиция",
+      "empty": "Меню позициясы жок."
+    },
+    "tables": {
+      "title": "Стол түзүү",
+      "addButton": "Стол кошуу",
+      "listTitle": "Столдор",
+      "emptyAll": "Стол жок.",
+      "emptyFiltered": "Чыпкага туура келген стол жок."
+    },
+    "users": {
+      "title": "Персонал кошуу",
+      "addButton": "Колдонуучу кошуу",
+      "listTitle": "Персонал",
+      "emptyAll": "Персонал жок.",
+      "emptyFiltered": "Чыпкага туура келген персонал жок."
+    },
+    "orders": {
+      "title": "Буйрутмалар",
+      "total": "Жалпы: {amount}",
+      "emptyAll": "Буйрутма жок.",
+      "emptyFiltered": "Чыпкага туура келген буйрутма жок."
+    },
+    "analytics": {
+      "ordersByStatus": "Статус боюнча буйрутмалар"
+    },
+    "dialogs": {
+      "tableQrTitle": "Столдун QR",
+      "qrAlt": "Столдун QR коду",
+      "qrFilename": "table-qr.png"
+    },
+    "toasts": {
+      "tableCreated": "Стол түзүлдү",
+      "userCreated": "Колдонуучу түзүлдү",
+      "menuItemAdded": "Позиция кошулду",
+      "sampleMenuAdded": "Үлгү меню кошулду"
+    },
+    "errors": {
+      "loadAdminData": "Админ маалыматтарын жүктөө мүмкүн эмес.",
+      "loadTables": "Столдор жүктөлгөн жок.",
+      "loadStaff": "Персонал жүктөлгөн жок.",
+      "loadMenu": "Меню жүктөлгөн жок.",
+      "loadOrders": "Буйрутмалар жүктөлгөн жок.",
+      "createTable": "Стол түзүлгөн жок.",
+      "updateTable": "Стол жаңыртылган жок.",
+      "deleteTable": "Стол өчүрүлгөн жок.",
+      "loadQr": "QR жүктөлгөн жок.",
+      "createUser": "Колдонуучу түзүлгөн жок.",
+      "updateUser": "Колдонуучу жаңыртылган жок.",
+      "addMenuItem": "Меню позициясы кошулган жок.",
+      "seedMenu": "Үлгү меню кошулган жок."
+    }
+  },
+  "owner": {
+    "nav": {
+      "title": "Ээнин консолу",
+      "venues": "Мекемелер",
+      "analytics": "Аналитика"
+    },
+    "header": {
+      "title": "Платформанын ээси"
+    },
+    "states": {
+      "loading": "Ээнин консолу жүктөлүүдө..."
+    },
+    "login": {
+      "title": "Платформа ээси кирүү",
+      "subtitle": "Бир нече мекеменин консолуна кирүү.",
+      "demoEmail": "owner@example.com",
+      "demoPassword": "Owner123!"
+    },
+    "analytics": {
+      "title": "Аналитика",
+      "subtitle": "Бардык мекемелер боюнча обзор.",
+      "orders30d": "30 күндөгү буйрутмалар",
+      "topItems": "Топ позициялар",
+      "revenue": "Түшүм"
+    },
+    "venues": {
+      "title": "Мекемелер",
+      "subtitle": "Платформадагы ресторандарды башкарыңыз.",
+      "filters": {
+        "searchPlaceholder": "Столдор же колдонуучулар боюнча издөө",
+        "allVenues": "Бардык мекемелер"
+      },
+      "actions": {
+        "create": "Мекеме түзүү",
+        "creating": "Түзүлүүдө..."
+      },
+      "empty": "Мекеме жок."
+    },
+    "tables": {
+      "title": "Столдор",
+      "subtitle": "Бардык мекемелер боюнча",
+      "actions": {
+        "goToVenue": "Мекемеге өтүү"
+      },
+      "empty": "Стол жок."
+    },
+    "users": {
+      "title": "Колдонуучулар",
+      "subtitle": "Мекемелер боюнча персонал",
+      "actions": {
+        "invite": "Персоналды чакыруу"
+      },
+      "empty": "Колдонуучу жок."
+    },
+    "venue": {
+      "tabs": {
+        "overview": "Обзор",
+        "menu": "Меню",
+        "tables": "Столдор",
+        "users": "Колдонуучулар",
+        "analytics": "Аналитика"
+      },
+      "menu": {
+        "subtitle": "Блюдаларды башкаруу",
+        "addSample": "Үлгү меню кошуу",
+        "seeding": "Кошулууда...",
+        "addItem": "Позиция кошуу",
+        "itemsCount": "{count} позиция",
+        "priceWithSort": "{price} · сорт {order}",
+        "emptyCategory": "Бул категорияда позиция жок.",
+        "emptyMenu": "Меню бош. Үлгү же позиция кошуңуз.",
+        "confirmDelete": "Бул позицияны өчүрөсүзбү?",
+        "fields": {
+          "priceCents": "Баасы (цент менен)",
+          "sortOrder": "Сорттоо тартиби",
+          "imageUrl": "Сүрөт URL"
+        },
+        "dialog": {
+          "createTitle": "Позиция кошуу",
+          "editTitle": "Позицияны түзөтүү",
+          "description": "Деталдарды, бааны жана модификаторлорду башкарыңыз."
+        },
+        "modifiers": {
+          "title": "Модификаторлор",
+          "addGroup": "Топ кошуу",
+          "groupName": "Топтун аты",
+          "required": "Милдеттүү",
+          "optionName": "Опциянын аты",
+          "addOption": "Опция кошуу",
+          "empty": "Модификатор жок. Керек болсо топ кошуңуз."
+        },
+        "validation": {
+          "required": "Аты, категориясы жана баасы милдеттүү.",
+          "imageUrl": "Сүрөт URL http/https менен башталышы керек",
+          "price": "Баасы оң сан болушу керек (цент менен)"
+        }
+      },
+      "tables": {
+        "actions": {
+          "add": "Стол кошуу"
+        },
+        "emptyAll": "Стол жок. Жогорудан кошуңуз.",
+        "emptyFiltered": "Чыпкага туура келген стол жок."
+      },
+      "users": {
+        "actions": {
+          "add": "Колдонуучу кошуу"
+        },
+        "emptyAll": "Колдонуучу жок. Жогорудан кошуңуз.",
+        "emptyFiltered": "Чыпкага туура келген колдонуучу жок.",
+        "placeholders": {
+          "role": "Роль (VENUE_ADMIN)"
+        }
+      },
+      "analytics": {
+        "orders7d": "7 күндөгү буйрутмалар",
+        "topItems": "Топ позициялар"
+      }
+    },
+    "toasts": {
+      "loggedIn": "Кирүү аткарылды",
+      "venueCreated": "Мекеме түзүлдү",
+      "tableCreated": "Стол түзүлдү",
+      "userCreated": "Колдонуучу түзүлдү",
+      "menuItemCreated": "Позиция түзүлдү",
+      "menuItemUpdated": "Позиция жаңыртылды",
+      "menuItemDeleted": "Позиция өчүрүлдү",
+      "menuItemActivated": "Позиция активдешти",
+      "menuItemDeactivated": "Позиция деактивдешти",
+      "sampleMenuAdded": "Үлгү меню кошулду"
+    },
+    "errors": {
+      "loginFailed": "Кирүү ишке ашкан жок",
+      "loadAnalytics": "Аналитика жүктөлгөн жок.",
+      "loadVenues": "Мекемелер жүктөлгөн жок.",
+      "loadVenue": "Мекеме жүктөлгөн жок.",
+      "loadTables": "Столдор жүктөлгөн жок.",
+      "loadUsers": "Колдонуучулар жүктөлгөн жок.",
+      "loadMenu": "Меню жүктөлгөн жок.",
+      "updateMenuItem": "Меню позициясы жаңыртылган жок.",
+      "updateSortOrder": "Тартип жаңыртылган жок.",
+      "saveMenuItem": "Меню позициясы сакталган жок.",
+      "deleteMenuItem": "Меню позициясы өчүрүлгөн жок.",
+      "createVenue": "Мекеме түзүлгөн жок.",
+      "createTable": "Стол түзүлгөн жок.",
+      "createUser": "Колдонуучу түзүлгөн жок.",
+      "seedMenu": "Үлгү меню кошулган жок."
+    }
+  },
+  "toastTest": {
+    "title": "Тост алдын ала көрүү",
+    "buttons": {
+      "default": "Демейки",
+      "success": "Ийгилик",
+      "error": "Ката"
+    },
+    "messages": {
+      "default": "Демейки тост",
+      "success": "Ийгиликтүү тост",
+      "error": "Ката тост"
+    }
+  },
+  "home": {
+    "headline": "Баштоо үчүн page.tsx файлын түзөтүңүз.",
+    "description": "Баштапкы чекит же нускама издеп жатасызбы? <templates>Шаблондорго</templates> же <learning>үйрөнүү борборуна</learning> өтүңүз.",
+    "actions": {
+      "deployNow": "Азыр жайгаштыруу",
+      "documentation": "Документация"
+    },
+    "alt": {
+      "nextLogo": "Next.js логотиби",
+      "vercelLogo": "Vercel логотиби"
+    }
+  },
+  "avantech": {
+    "brand": "Авантехник",
+    "tagline": "Сантехникага тез буйрутма",
+    "search": {
+      "placeholder": "Товарларды же варианттарды издөө",
+      "empty": "Дал келгендер жок",
+      "categoryLabel": "Категория",
+      "allCategories": "Бардык категориялар"
+    },
+    "actions": {
+      "selectVariant": "Тандоо: {variant}",
+      "increaseQty": "Санын көбөйтүү",
+      "decreaseQty": "Санын азайтуу"
+    },
+    "auth": {
+      "title": "Кирүү",
+      "subtitle": "Улантуу үчүн телефон жана сырсөздү жазыңыз.",
+      "phoneLabel": "Телефон",
+      "phonePlaceholder": "+996XXXXXXXXX",
+      "passwordLabel": "Сырсөз",
+      "passwordPlaceholder": "Сырсөз",
+      "submit": "Кирүү",
+      "submitting": "Кирүүдө...",
+      "invalidPhone": "Телефонду +996XXXXXXXXX форматында жазыңыз.",
+      "required": "Бардык талааларды толтуруңуз.",
+      "helper": "Формат: +996XXXXXXXXX"
+    },
+    "cart": {
+      "title": "Себет",
+      "subtitle": "Позицияларды текшерип, Telegram'га жөнөтүңүз.",
+      "empty": "Себет бош.",
+      "total": "Жалпы",
+      "open": "Себет",
+      "order": "Буйрутма",
+      "sending": "Жөнөтүлүүдө...",
+      "orderSuccess": "Буйрутма Telegram'га жөнөтүлдү.",
+      "orderFailed": "Буйрутма жөнөтүлбөдү."
+    },
+    "attributes": {
+      "diameter": "Диаметр",
+      "thread": "Жип",
+      "length": "Узундук",
+      "pressure": "Басым",
+      "angle": "Бурч",
+      "width": "Туурасы",
+      "volume": "Көлөм",
+      "material": "Материал"
+    },
+    "telegram": {
+      "title": "Авантехник буйрутмасы",
+      "customer": "Кардар",
+      "customerName": "Аты",
+      "customerPhone": "Телефон",
+      "customerAddress": "Дарек",
+      "customerGuest": "Конок",
+      "date": "Дата",
+      "total": "Жалпы",
+      "empty": "Буйрутма бош.",
+      "configMissing": "Telegram жөндөөлөрү жок.",
+      "failed": "Telegram'га жөнөтүү катасы.",
+      "invalidPayload": "Буйрутма маалыматтары туура эмес."
+    }
+  }
+}

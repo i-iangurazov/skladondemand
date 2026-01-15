@@ -1,0 +1,37 @@
+{
+  "name": "qr-ordering",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "dev": "turbo dev --filter @qr/web",
+    "dev:all": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "postinstall": "if [ -z \"$DATABASE_URL\" ]; then echo \"Skipping prisma generate (no DATABASE_URL)\"; else pnpm --filter @qr/db run prisma:generate; fi",
+    "db:up": "docker compose -f infra/docker/compose.yml up -d",
+    "db:down": "docker compose -f infra/docker/compose.yml down",
+    "db:reset": "docker compose -f infra/docker/compose.yml down -v && docker compose -f infra/docker/compose.yml up -d"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "prisma",
+      "@prisma/engines",
+      "esbuild",
+      "sharp",
+      "unrs-resolver"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.1",
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
+    "tsx": "^4.21.0",
+    "turbo": "^2.6.3",
+    "typescript": "^5.9.3"
+  }
+}

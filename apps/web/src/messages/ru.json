@@ -1,0 +1,609 @@
+{
+  "common": {
+    "meta": {
+      "title": "Авантехник",
+      "description": "Быстрый интерфейс заказа сантехники"
+    },
+    "actions": {
+      "activate": "Активировать",
+      "add": "Добавить",
+      "addToCart": "В корзину",
+      "callWaiter": "Позвать официанта",
+      "cancel": "Отмена",
+      "clearFilters": "Сбросить фильтры",
+      "close": "Закрыть",
+      "copyLink": "Копировать ссылку",
+      "deactivate": "Деактивировать",
+      "delete": "Удалить",
+      "download": "Скачать",
+      "edit": "Редактировать",
+      "logout": "Выйти",
+      "open": "Открыть",
+      "refresh": "Обновить",
+      "requestBill": "Счет, пожалуйста",
+      "save": "Сохранить",
+      "sendToKitchen": "Отправить на кухню",
+      "signIn": "Войти",
+      "start": "Начать"
+    },
+    "labels": {
+      "cart": "Корзина",
+      "category": "Категория",
+      "code": "Код",
+      "currency": "сом",
+      "description": "Описание",
+      "dialog": "Диалог",
+      "filters": "Фильтры",
+      "items": "Позиции",
+      "max": "Макс",
+      "menu": "Меню",
+      "min": "Мин",
+      "name": "Название",
+      "order": "Заказ",
+      "payments": "Платежи",
+      "qr": "QR",
+      "reason": "Причина",
+      "role": "Роль",
+      "slug": "Слаг",
+      "status": "Статус",
+      "table": "Стол",
+      "timezone": "Часовой пояс",
+      "tip": "Чаевые",
+      "toPay": "К оплате",
+      "user": "Пользователь",
+      "venue": "Заведение"
+    },
+    "filters": {
+      "allRoles": "Все роли",
+      "allStatuses": "Все статусы"
+    },
+    "language": {
+      "label": "Язык",
+      "options": {
+        "en": "EN",
+        "ru": "RU",
+        "kg": "KG"
+      }
+    },
+    "roles": {
+      "ADMIN": "Администратор",
+      "KITCHEN": "Кухня",
+      "WAITER": "Официант",
+      "VENUE_ADMIN": "Админ заведения",
+      "PLATFORM_OWNER": "Владелец платформы",
+      "kitchen": "Кухня",
+      "waiter": "Официант"
+    },
+    "states": {
+      "connected": "Подключено",
+      "empty": "Пока пусто",
+      "inStock": "В наличии",
+      "loading": "Загрузка...",
+      "noImage": "Нет изображения",
+      "notAvailable": "Недоступно",
+      "outOfStock": "Нет в наличии",
+      "redirecting": "Перенаправление...",
+      "unavailable": "Недоступно"
+    }
+  },
+  "errors": {
+    "generic": "Что-то пошло не так",
+    "invalidCredentials": "Неверные данные",
+    "offline": "Нет подключения",
+    "offlineHint": "Проверьте интернет и попробуйте снова.",
+    "forbidden": "Доступ запрещен",
+    "rateLimited": "Слишком много попыток. Попробуйте позже.",
+    "unauthorized": "Нет доступа",
+    "unauthorizedHint": "У вас нет доступа к этому разделу."
+  },
+  "forms": {
+    "placeholders": {
+      "capacity": "Вместимость",
+      "category": "Выберите категорию",
+      "categoryId": "ID категории",
+      "code": "Код",
+      "comment": "Комментарий",
+      "currency": "сом",
+      "email": "Email",
+      "imageUrl": "https://...",
+      "name": "Название",
+      "optional": "Необязательно",
+      "password": "Пароль",
+      "passwordOptional": "Пароль (необязательно)",
+      "peopleCount": "Количество гостей",
+      "phone": "Телефон",
+      "priceCents": "Цена (в центах)",
+      "searchMenu": "Поиск по меню",
+      "searchOrders": "Поиск заказов",
+      "searchStaff": "Поиск персонала",
+      "searchTables": "Поиск столов",
+      "searchUsers": "Поиск пользователей",
+      "sharesToPay": "Доли к оплате",
+      "slug": "Слаг",
+      "timezone": "Часовой пояс",
+      "tipCustom": "Свои чаевые",
+      "totalShares": "Всего долей"
+    },
+    "validation": {
+      "peopleCountRequired": "Введите количество гостей.",
+      "totalSharesRequired": "Введите общее количество долей."
+    }
+  },
+  "status": {
+    "active": "Активен",
+    "inactive": "Неактивен",
+    "guest": {
+      "ordering": "Заказ",
+      "preparing": "Готовится",
+      "served": "Подано",
+      "outstanding": "К оплате"
+    },
+    "order": {
+      "NEW": "Новый",
+      "ACCEPTED": "Принят",
+      "IN_PROGRESS": "В работе",
+      "READY": "Готов",
+      "SERVED": "Подано",
+      "CANCELLED": "Отменен"
+    },
+    "payment": {
+      "CREATED": "Создан",
+      "PENDING": "В ожидании",
+      "PAID": "Оплачен",
+      "FAILED": "Ошибка",
+      "CANCELLED": "Отменен"
+    }
+  },
+  "guest": {
+    "connect": {
+      "title": "Присоединиться к столу",
+      "hint": "Введите имя и количество гостей, чтобы начать."
+    },
+    "menu": {
+      "subtitle": "Выбирайте блюда и добавляйте в корзину.",
+      "modifiersRequired": "Нужны модификаторы",
+      "modifiersOptional": "Модификаторы по желанию"
+    },
+    "orders": {
+      "title": "Отправленные заказы",
+      "subtitle": "Следите за тем, что уже отправлено на кухню.",
+      "empty": "Пока нет отправленных заказов.",
+      "paidAmount": "Оплачено: {amount}",
+      "paidStatus": "Оплачено",
+      "remainingAmount": "Осталось: {amount}"
+    },
+    "cart": {
+      "title": "Корзина",
+      "subtitle": "Проверьте позиции перед отправкой.",
+      "draftTitle": "Черновик",
+      "itemsCount": "{count} поз.",
+      "draftEmpty": "Корзина пуста.",
+      "sentTitle": "Отправленные заказы",
+      "sentEmpty": "Пока нет отправленных заказов.",
+      "paymentTitle": "Оплата",
+      "paymentModeTitle": "Способ оплаты",
+      "fullBill": "Полный счет",
+      "splitEvenly": "Поровну",
+      "splitHelp": "Каждый гость платит одинаково.",
+      "selectedItems": "Выбранные позиции",
+      "shareCount": "{count} долей",
+      "quoteTitle": "Калькуляция",
+      "refreshQuote": "Обновить",
+      "quoteEmpty": "Выберите позиции для расчета.",
+      "quoteShares": "{shares} = {total}",
+      "quoteUpdated": "Обновлено {time}",
+      "paySelectedItems": "Оплатить выбранные",
+      "addItemsFirst": "Сначала добавьте позиции.",
+      "tipNone": "Без чаевых",
+      "tipCustom": "Другое",
+      "tipPercent": "Чаевые {percent}%",
+      "sending": "Отправка...",
+      "processing": "Обработка...",
+      "increaseQty": "Увеличить",
+      "decreaseQty": "Уменьшить",
+      "removeItem": "Удалить",
+      "payAmount": "Оплатить {amount}"
+    },
+    "payment": {
+      "nothingToPay": "Пока нечего оплачивать.",
+      "selectItemsRequired": "Выберите позиции для оплаты.",
+      "stateChanged": "Статус оплаты обновлен.",
+      "itemsAlreadyPaid": "Некоторые позиции уже оплачены."
+    },
+    "outstanding": {
+      "title": "Задолженность",
+      "remaining": "Осталось {amount}"
+    },
+    "sessionClosed": {
+      "title": "Сессия завершена",
+      "defaultReason": "Эта сессия завершена."
+    },
+    "debug": {
+      "socket": "Сокет",
+      "session": "Сессия",
+      "stateVersion": "Версия состояния",
+      "lastEvent": "Последнее событие",
+      "lastState": "Последнее состояние",
+      "lastRefetch": "Последнее обновление",
+      "connected": "Подключено",
+      "disconnected": "Отключено",
+      "none": "Нет"
+    },
+    "errors": {
+      "menuLoadFailed": "Не удалось загрузить меню.",
+      "joinSessionFailed": "Не удалось подключиться к сессии.",
+      "addToCartFailed": "Не удалось добавить позицию.",
+      "updateCartFailed": "Не удалось обновить корзину.",
+      "removeItemFailed": "Не удалось удалить позицию.",
+      "submitOrderFailed": "Не удалось отправить заказ.",
+      "notifyStaffFailed": "Не удалось уведомить персонал.",
+      "paymentCreateFailed": "Не удалось создать платеж.",
+      "splitPlanFailed": "Не удалось разделить платеж.",
+      "modifiersRequired": "Пожалуйста, выберите обязательные модификаторы."
+    },
+    "toasts": {
+      "addedToCart": "Добавлено в корзину",
+      "orderSent": "Заказ #{number} отправлен",
+      "orderReady": "Заказ #{number} готов",
+      "paymentConfirmed": "Платеж подтвержден",
+      "paymentCreated": "Платеж создан: {amount}",
+      "paymentQuoteUpdated": "Калькуляция обновлена",
+      "waiterNotified": "Официант вызван"
+    }
+  },
+  "kitchen": {
+    "title": "Кухня",
+    "lanes": {
+      "new": "Новые",
+      "preparing": "Готовится",
+      "ready": "Готово",
+      "served": "Подано"
+    },
+    "actions": {
+      "acceptOrder": "Принять",
+      "startCooking": "Начать готовить",
+      "markReady": "Готово"
+    },
+    "emptyLane": "В этой колонке нет заказов."
+  },
+  "staff": {
+    "readyTitle": "Готовые заказы",
+    "calls": {
+      "title": "Вызовы",
+      "empty": "Вызовов нет."
+    },
+    "orders": {
+      "empty": "Нет готовых заказов."
+    },
+    "actions": {
+      "markServed": "Отметить как подано"
+    },
+    "filters": {
+      "searchPlaceholder": "Поиск по заказам или столам",
+      "viewLabel": "Показать",
+      "viewAll": "Все",
+      "viewOrders": "Заказы",
+      "viewCalls": "Вызовы",
+      "sortLabel": "Сортировка",
+      "sortNewest": "Сначала новые",
+      "sortOldest": "Сначала старые"
+    },
+    "toasts": {
+      "orderReady": "Заказ #{number} готов для стола {table}",
+      "callWaiter": "Вызов от стола {table}",
+      "callWaiterWithMessage": "Стол {table}: {message}"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Вход администратора",
+      "demoEmail": "admin@example.com",
+      "demoPassword": "Admin123!"
+    },
+    "header": {
+      "signedInAs": "Вы вошли как",
+      "revenue": "Выручка: {amount}"
+    },
+    "tabs": {
+      "tables": "Столы",
+      "menu": "Меню",
+      "users": "Пользователи",
+      "orders": "Заказы",
+      "analytics": "Аналитика"
+    },
+    "menu": {
+      "subtitle": "Управление меню",
+      "addSample": "Добавить пример меню",
+      "seeding": "Добавление...",
+      "addItem": "Добавить позицию",
+      "itemsCount": "{count} поз.",
+      "empty": "Пока нет позиций меню."
+    },
+    "tables": {
+      "title": "Создать стол",
+      "addButton": "Добавить стол",
+      "listTitle": "Столы",
+      "emptyAll": "Пока нет столов.",
+      "emptyFiltered": "Нет столов по фильтрам."
+    },
+    "users": {
+      "title": "Добавить персонал",
+      "addButton": "Добавить пользователя",
+      "listTitle": "Персонал",
+      "emptyAll": "Пока нет персонала.",
+      "emptyFiltered": "Нет персонала по фильтрам."
+    },
+    "orders": {
+      "title": "Заказы",
+      "total": "Итого: {amount}",
+      "emptyAll": "Пока нет заказов.",
+      "emptyFiltered": "Нет заказов по фильтрам."
+    },
+    "analytics": {
+      "ordersByStatus": "Заказы по статусам"
+    },
+    "dialogs": {
+      "tableQrTitle": "QR стола",
+      "qrAlt": "QR-код стола",
+      "qrFilename": "table-qr.png"
+    },
+    "toasts": {
+      "tableCreated": "Стол создан",
+      "userCreated": "Пользователь создан",
+      "menuItemAdded": "Позиция добавлена",
+      "sampleMenuAdded": "Пример меню добавлен"
+    },
+    "errors": {
+      "loadAdminData": "Не удалось загрузить данные администратора.",
+      "loadTables": "Не удалось загрузить столы.",
+      "loadStaff": "Не удалось загрузить персонал.",
+      "loadMenu": "Не удалось загрузить меню.",
+      "loadOrders": "Не удалось загрузить заказы.",
+      "createTable": "Не удалось создать стол.",
+      "updateTable": "Не удалось обновить стол.",
+      "deleteTable": "Не удалось удалить стол.",
+      "loadQr": "Не удалось загрузить QR-код.",
+      "createUser": "Не удалось создать пользователя.",
+      "updateUser": "Не удалось обновить пользователя.",
+      "addMenuItem": "Не удалось добавить позицию меню.",
+      "seedMenu": "Не удалось добавить пример меню."
+    }
+  },
+  "owner": {
+    "nav": {
+      "title": "Консоль владельца",
+      "venues": "Заведения",
+      "analytics": "Аналитика"
+    },
+    "header": {
+      "title": "Владелец платформы"
+    },
+    "states": {
+      "loading": "Загрузка консоли владельца..."
+    },
+    "login": {
+      "title": "Вход владельца платформы",
+      "subtitle": "Доступ к консоли нескольких заведений.",
+      "demoEmail": "owner@example.com",
+      "demoPassword": "Owner123!"
+    },
+    "analytics": {
+      "title": "Аналитика",
+      "subtitle": "Обзор по всем заведениям.",
+      "orders30d": "Заказы за 30 дней",
+      "topItems": "Топ позиций",
+      "revenue": "Выручка"
+    },
+    "venues": {
+      "title": "Заведения",
+      "subtitle": "Управляйте ресторанами на платформе.",
+      "filters": {
+        "searchPlaceholder": "Поиск по столам или пользователям",
+        "allVenues": "Все заведения"
+      },
+      "actions": {
+        "create": "Создать заведение",
+        "creating": "Создание..."
+      },
+      "empty": "Пока нет заведений."
+    },
+    "tables": {
+      "title": "Столы",
+      "subtitle": "По всем заведениям",
+      "actions": {
+        "goToVenue": "Перейти к заведению"
+      },
+      "empty": "Пока нет столов."
+    },
+    "users": {
+      "title": "Пользователи",
+      "subtitle": "Персонал по заведениям",
+      "actions": {
+        "invite": "Пригласить персонал"
+      },
+      "empty": "Пока нет пользователей."
+    },
+    "venue": {
+      "tabs": {
+        "overview": "Обзор",
+        "menu": "Меню",
+        "tables": "Столы",
+        "users": "Пользователи",
+        "analytics": "Аналитика"
+      },
+      "menu": {
+        "subtitle": "Управление блюдами",
+        "addSample": "Добавить пример меню",
+        "seeding": "Добавление...",
+        "addItem": "Добавить позицию",
+        "itemsCount": "{count} поз.",
+        "priceWithSort": "{price} · сорт {order}",
+        "emptyCategory": "В этой категории нет позиций.",
+        "emptyMenu": "Меню пустое. Добавьте пример или позицию.",
+        "confirmDelete": "Удалить эту позицию?",
+        "fields": {
+          "priceCents": "Цена (в центах)",
+          "sortOrder": "Порядок сортировки",
+          "imageUrl": "URL изображения"
+        },
+        "dialog": {
+          "createTitle": "Добавить позицию",
+          "editTitle": "Редактировать позицию",
+          "description": "Управляйте деталями, ценами и модификаторами."
+        },
+        "modifiers": {
+          "title": "Модификаторы",
+          "addGroup": "Добавить группу",
+          "groupName": "Название группы",
+          "required": "Обязательные",
+          "optionName": "Название опции",
+          "addOption": "Добавить опцию",
+          "empty": "Модификаторов нет. Добавьте группы при необходимости."
+        },
+        "validation": {
+          "required": "Название, категория и цена обязательны.",
+          "imageUrl": "URL изображения должен начинаться с http/https",
+          "price": "Цена должна быть положительным числом (в центах)"
+        }
+      },
+      "tables": {
+        "actions": {
+          "add": "Добавить стол"
+        },
+        "emptyAll": "Пока нет столов. Добавьте выше.",
+        "emptyFiltered": "Нет столов по фильтрам."
+      },
+      "users": {
+        "actions": {
+          "add": "Добавить пользователя"
+        },
+        "emptyAll": "Пока нет пользователей. Добавьте выше.",
+        "emptyFiltered": "Нет пользователей по фильтрам.",
+        "placeholders": {
+          "role": "Роль (VENUE_ADMIN)"
+        }
+      },
+      "analytics": {
+        "orders7d": "Заказы за 7 дней",
+        "topItems": "Топ позиций"
+      }
+    },
+    "toasts": {
+      "loggedIn": "Вход выполнен",
+      "venueCreated": "Заведение создано",
+      "tableCreated": "Стол создан",
+      "userCreated": "Пользователь создан",
+      "menuItemCreated": "Позиция создана",
+      "menuItemUpdated": "Позиция обновлена",
+      "menuItemDeleted": "Позиция удалена",
+      "menuItemActivated": "Позиция активирована",
+      "menuItemDeactivated": "Позиция деактивирована",
+      "sampleMenuAdded": "Пример меню добавлен"
+    },
+    "errors": {
+      "loginFailed": "Ошибка входа",
+      "loadAnalytics": "Не удалось загрузить аналитику.",
+      "loadVenues": "Не удалось загрузить заведения.",
+      "loadVenue": "Не удалось загрузить заведение.",
+      "loadTables": "Не удалось загрузить столы.",
+      "loadUsers": "Не удалось загрузить пользователей.",
+      "loadMenu": "Не удалось загрузить меню.",
+      "updateMenuItem": "Не удалось обновить позицию меню.",
+      "updateSortOrder": "Не удалось обновить порядок.",
+      "saveMenuItem": "Не удалось сохранить позицию меню.",
+      "deleteMenuItem": "Не удалось удалить позицию меню.",
+      "createVenue": "Не удалось создать заведение.",
+      "createTable": "Не удалось создать стол.",
+      "createUser": "Не удалось создать пользователя.",
+      "seedMenu": "Не удалось добавить пример меню."
+    }
+  },
+  "toastTest": {
+    "title": "Превью тостов",
+    "buttons": {
+      "default": "По умолчанию",
+      "success": "Успех",
+      "error": "Ошибка"
+    },
+    "messages": {
+      "default": "Обычный тост",
+      "success": "Успешный тост",
+      "error": "Тост с ошибкой"
+    }
+  },
+  "home": {
+    "headline": "Чтобы начать, отредактируйте файл page.tsx.",
+    "description": "Ищете стартовую точку или инструкции? Перейдите к <templates>Шаблонам</templates> или <learning>центру обучения</learning>.",
+    "actions": {
+      "deployNow": "Развернуть сейчас",
+      "documentation": "Документация"
+    },
+    "alt": {
+      "nextLogo": "Логотип Next.js",
+      "vercelLogo": "Логотип Vercel"
+    }
+  },
+  "avantech": {
+    "brand": "Авантехник",
+    "tagline": "Быстрый заказ сантехники",
+    "search": {
+      "placeholder": "Поиск товаров или вариантов",
+      "empty": "Совпадений нет",
+      "categoryLabel": "Категория",
+      "allCategories": "Все категории"
+    },
+    "actions": {
+      "selectVariant": "Выбрать {variant}",
+      "increaseQty": "Увеличить количество",
+      "decreaseQty": "Уменьшить количество"
+    },
+    "auth": {
+      "title": "Вход",
+      "subtitle": "Введите телефон и пароль, чтобы продолжить.",
+      "phoneLabel": "Телефон",
+      "phonePlaceholder": "+996XXXXXXXXX",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Пароль",
+      "submit": "Войти",
+      "submitting": "Вход...",
+      "invalidPhone": "Введите номер в формате +996XXXXXXXXX.",
+      "required": "Заполните все поля.",
+      "helper": "Формат: +996XXXXXXXXX"
+    },
+    "cart": {
+      "title": "Корзина",
+      "subtitle": "Проверьте позиции и отправьте в Telegram.",
+      "empty": "Корзина пуста.",
+      "total": "Итого",
+      "open": "Корзина",
+      "order": "Заказать",
+      "sending": "Отправка...",
+      "orderSuccess": "Заказ отправлен в Telegram.",
+      "orderFailed": "Не удалось отправить заказ."
+    },
+    "attributes": {
+      "diameter": "Диаметр",
+      "thread": "Резьба",
+      "length": "Длина",
+      "pressure": "Давление",
+      "angle": "Угол",
+      "width": "Ширина",
+      "volume": "Объем",
+      "material": "Материал"
+    },
+    "telegram": {
+      "title": "Заказ Авантехник",
+      "customer": "Клиент",
+      "customerName": "Имя",
+      "customerPhone": "Телефон",
+      "customerAddress": "Адрес",
+      "customerGuest": "Гость",
+      "date": "Дата",
+      "total": "Итого",
+      "empty": "Заказ пуст.",
+      "configMissing": "Telegram не настроен.",
+      "failed": "Ошибка отправки в Telegram.",
+      "invalidPayload": "Неверные данные заказа."
+    }
+  }
+}

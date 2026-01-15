@@ -1,0 +1,240 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Locale {
+  en
+  ru
+  kg
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum ImportSourceType {
+  CSV
+  PDF
+  CLOUDSHOP_XLSX
+}
+
+enum ImportJobStatus {
+  PARSED
+  COMMITTED
+  FAILED
+  UNDONE
+}
+
+enum ImportRowStatus {
+  READY
+  ERROR
+  CREATED
+  UPDATED
+  SKIPPED
+  FAILED
+}
+
+model Category {
+  id        String                 @id @default(cuid())
+  sortOrder Int
+  slug      String?                @unique
+  isActive  Boolean                @default(true)
+
+  translations CategoryTranslation[]
+  products     Product[]
+}
+
+model CategoryTranslation {
+  id         String   @id @default(cuid())
+  categoryId String
+  locale     Locale
+  name       String
+
+  category Category @relation(fields: [categoryId], references: [id])
+
+  @@unique([categoryId, locale])
+}
+
+model Product {
+  id          String                 @id @default(cuid())
+  categoryId  String
+  sortOrder   Int
+  slug        String?                @unique
+  imageUrl    String?
+  imageUpdatedAt DateTime?
+  imageSource String?
+  imageSourceId String?
+  description String?
+  isActive    Boolean                @default(true)
+
+  category     Category              @relation(fields: [categoryId], references: [id])
+  translations ProductTranslation[]
+  variants     Variant[]
+}
+
+model ProductTranslation {
+  id          String  @id @default(cuid())
+  productId   String
+  locale      Locale
+  name        String
+  description String?
+
+  product Product @relation(fields: [productId], references: [id])
+
+  @@unique([productId, locale])
+}
+
+model Variant {
+  id        String               @id @default(cuid())
+  productId String
+  price     Int
+  priceRetail Int
+  priceWholesale Int?
+  sku       String?              @unique
+  isActive  Boolean              @default(true)
+  attributes Json
+
+  product      Product            @relation(fields: [productId], references: [id])
+  translations VariantTranslation[]
+
+  @@index([priceRetail])
+  @@index([priceWholesale])
+  @@index([attributes], type: Gin)
+}
+
+model VariantTranslation {
+  id        String  @id @default(cuid())
+  variantId String
+  locale    Locale
+  label     String
+
+  variant Variant @relation(fields: [variantId], references: [id])
+
+  @@unique([variantId, locale])
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String?
+  phone        String   @unique
+  address      String?
+  passwordHash String
+  role         UserRole
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions Session[]
+  orders Order[]
+  importJobs ImportJob[]
+  importAudits ImportAuditLog[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  revokedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String?
+  locale    String?
+  total     Int
+  items     Json
+
+  user          User?                  @relation(fields: [userId], references: [id])
+  notifications OrderNotificationJob[]
+
+  @@index([createdAt])
+}
+
+model OrderNotificationJob {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  orderId     String
+  channel     String
+  status      String
+  attempts    Int      @default(0)
+  nextRunAt   DateTime @default(now())
+  lastError   String?
+  requestJson Json?
+  responseJson Json?
+  messageId   String?
+
+  order Order @relation(fields: [orderId], references: [id])
+
+  @@index([status, nextRunAt])
+  @@index([orderId])
+}
+
+model ImportJob {
+  id               String          @id @default(cuid())
+  createdAt        DateTime        @default(now())
+  createdByUserId  String
+  sourceType       ImportSourceType
+  status           ImportJobStatus
+  checksum         String?
+  fileName         String?
+  fileSize         Int?
+  totals           Json?
+  reportJson       Json?
+  warnings         Json?
+  mapping          Json?
+
+  createdByUser User         @relation(fields: [createdByUserId], references: [id])
+  rows          ImportRow[]
+  audits        ImportAuditLog[]
+
+  @@index([createdByUserId, createdAt])
+}
+
+model ImportRow {
+  id           String          @id @default(cuid())
+  importJobId  String
+  rowIndex     Int
+  status       ImportRowStatus
+  sku          String?
+  needsReview  Boolean         @default(false)
+  confidence   Float?
+  errors       Json?
+  data         Json
+  createdAt    DateTime        @default(now())
+
+  importJob ImportJob @relation(fields: [importJobId], references: [id])
+
+  @@index([importJobId, rowIndex])
+  @@index([sku])
+}
+
+model ImportAuditLog {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  userId      String
+  action      String
+  metadata    Json?
+  importJobId String?
+
+  user      User       @relation(fields: [userId], references: [id])
+  importJob ImportJob? @relation(fields: [importJobId], references: [id])
+
+  @@index([userId, createdAt])
+  @@index([importJobId])
+}

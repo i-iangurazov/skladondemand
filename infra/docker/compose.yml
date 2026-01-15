@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: qr_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: qr_ordering
+    ports:
+      - "5432:5432"
+    volumes:
+      - qr_pgdata:/var/lib/postgresql/data
+
+volumes:
+  qr_pgdata:
