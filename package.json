@@ -14,7 +14,9 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@prisma/engines",
       "esbuild",
+      "prisma",
       "sharp",
       "unrs-resolver"
     ]
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^25.0.1",
     "eslint": "^9.39.2",
+    "prisma": "^6.19.1",
     "prettier": "^3.7.4",
     "tsx": "^4.21.0",
     "turbo": "^2.6.3",

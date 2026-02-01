@@ -3,7 +3,7 @@
     { "src": "apps/web/package.json", "use": "@vercel/next" }
   ],
   "installCommand": "pnpm -w install",
-  "buildCommand": "pnpm --filter @qr/db prisma:generate && pnpm --filter @store/web build",
+  "buildCommand": "pnpm exec prisma generate --schema packages/db/prisma/schema.prisma && pnpm --filter @store/web build",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs"
 }
