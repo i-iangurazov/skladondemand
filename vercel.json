@@ -1,6 +1,8 @@
 {
-  "installCommand": "pnpm -w install",
+  "builds": [
+    { "src": "apps/web/package.json", "use": "@vercel/next" }
+  ],
+  "installCommand": "pnpm -w install --filter @store/web... --filter @qr/db...",
   "buildCommand": "pnpm --filter @store/web build",
-  "framework": "nextjs",
-  "outputDirectory": "apps/web/.next"
+  "framework": "nextjs"
 }
