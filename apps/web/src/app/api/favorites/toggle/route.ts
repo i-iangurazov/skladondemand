@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { requireUser } from '@/lib/auth/requireUser';
 
@@ -20,7 +21,7 @@ export async function POST(request: Request) {
   }
 
   const handle = normalizeHandle(parsed.data.productHandle);
-  const result = await prisma.$transaction(async (tx) => {
+  const result = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
     const existing = await tx.favorite.findUnique({
       where: { userId_productHandle: { userId: user.id, productHandle: handle } },
       select: { id: true },
