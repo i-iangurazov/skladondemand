@@ -111,7 +111,7 @@ ALTER TABLE "MenuModifierGroup" DROP CONSTRAINT "MenuModifierGroup_itemId_fkey";
 ALTER TABLE "MenuModifierOption" DROP CONSTRAINT "MenuModifierOption_groupId_fkey";
 
 -- DropForeignKey
-ALTER TABLE "Order" DROP CONSTRAINT "Order_userId_fkey";
+ALTER TABLE IF EXISTS "Order" DROP CONSTRAINT IF EXISTS "Order_userId_fkey";
 
 -- DropForeignKey
 ALTER TABLE "OrderItem" DROP CONSTRAINT "OrderItem_menuItemId_fkey";
@@ -123,7 +123,7 @@ ALTER TABLE "OrderItem" DROP CONSTRAINT "OrderItem_orderId_fkey";
 ALTER TABLE "OrderItemModifier" DROP CONSTRAINT "OrderItemModifier_orderItemId_fkey";
 
 -- DropForeignKey
-ALTER TABLE "OrderNotificationJob" DROP CONSTRAINT "OrderNotificationJob_orderId_fkey";
+ALTER TABLE IF EXISTS "OrderNotificationJob" DROP CONSTRAINT IF EXISTS "OrderNotificationJob_orderId_fkey";
 
 -- DropForeignKey
 ALTER TABLE "PaymentAllocation" DROP CONSTRAINT "PaymentAllocation_orderItemId_fkey";
@@ -253,7 +253,7 @@ DROP TABLE "MenuModifierGroup";
 DROP TABLE "MenuModifierOption";
 
 -- DropTable
-DROP TABLE "Order";
+DROP TABLE IF EXISTS "Order";
 
 -- DropTable
 DROP TABLE "OrderItem";
@@ -262,7 +262,7 @@ DROP TABLE "OrderItem";
 DROP TABLE "OrderItemModifier";
 
 -- DropTable
-DROP TABLE "OrderNotificationJob";
+DROP TABLE IF EXISTS "OrderNotificationJob";
 
 -- DropTable
 DROP TABLE "PaymentAllocation";

@@ -4,6 +4,5 @@
   ],
   "installCommand": "pnpm -w install --filter @store/web... --filter @qr/db...",
   "buildCommand": "pnpm -w install --filter @store/web... --filter @qr/db... && pnpm --filter @qr/db exec prisma generate && pnpm --filter @store/web exec next build",
-  "outputDirectory": ".next",
   "framework": "nextjs"
 }
