@@ -2,8 +2,8 @@
   "builds": [
     { "src": "apps/web/package.json", "use": "@vercel/next" }
   ],
-  "installCommand": "pnpm -w install",
-  "buildCommand": "pnpm --filter @qr/db exec prisma generate && pnpm --filter @store/web build",
+  "installCommand": "pnpm -w install --filter ./apps/web... --filter @qr/db...",
+  "buildCommand": "pnpm -w install --filter ./apps/web... --filter @qr/db... && pnpm --filter @qr/db exec prisma generate && pnpm --filter @store/web exec next build",
   "outputDirectory": ".next",
   "framework": "nextjs"
 }
