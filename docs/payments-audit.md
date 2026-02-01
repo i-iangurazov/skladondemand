@@ -7,7 +7,6 @@
 - `PaymentIntent`: `venueId`, `sessionId`, optional `orderId`, `amount` (int cents), `status` enum (CREATED, PENDING, PAID, FAILED, CANCELLED), `payload` JSON (mode, items, splitCount, baseAmount, tipPercent, tipAmount, paidByDeviceHash). Used as payments; “paid” determined by status == PAID.
 - Outstanding today: computed server-side via `computeOutstanding` using cart + active orders (excludes SERVED, CANCELLED) minus paid amounts (`payload.baseAmount` preferred).
 
-### B) Current API surface (apps/api/src/server.ts)
 - POST `/public/sessions/:sessionId/payments`
   - Request (PaymentCreateDto): { sessionId, amount?, orderId?, mode: FULL|EVEN|ITEMS, items?: string[], splitCount?: number, tipPercent?, tipAmount?, paidByDeviceHash?, idempotencyKey?, token }
   - Logic: loads cart + active orders (status not in SERVED,CANCELLED), optional order; `computeOutstanding` with mode/items/splitCount to get base/remaining/selectedCap. Computes `amount` mostly from client input (fallbacks: ITEMS→selectedCap; EVEN→ceil(base/splitCount); FULL→remaining). Checks amount<=remaining, creates PaymentIntent (CREATED) with payload incl. baseAmount, tip; immediately marks PAID (mock). Emits payment.updated. Idempotency via Idempotency-Key header and requestHash.

@@ -1,13 +1,8 @@
 import { NextResponse } from 'next/server';
-import { buildClearSessionCookie, getSessionData, revokeSession } from '@/lib/auth/session';
+import { clearSessionCookie } from '@/lib/auth/jwt';
 
-export async function POST(request: Request) {
+export async function POST() {
   const response = NextResponse.json({ ok: true });
-  const session = await getSessionData(request);
-  if (session?.token) {
-    await revokeSession(session.token);
-  }
-  const cookie = buildClearSessionCookie();
-  response.cookies.set(cookie.name, cookie.value, cookie.options);
+  clearSessionCookie(response);
   return response;
 }

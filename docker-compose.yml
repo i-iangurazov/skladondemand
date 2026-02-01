@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: skladondemand-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: skladondemand
+      POSTGRES_USER: skladon
+      POSTGRES_PASSWORD: skladon
+    volumes:
+      - skladondemand_pgdata:/var/lib/postgresql/data
+
+volumes:
+  skladondemand_pgdata:

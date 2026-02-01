@@ -28,7 +28,28 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "dist",
+    "src/__tests__/**",
+    "src/lib/auth/**",
+    "src/lib/importer/**",
+    "src/lib/notifications/**",
+    "src/lib/images/**",
+    "src/lib/avantech/**",
+    "src/messages/**",
+    "src/i18n.ts",
+    "src/components/admin/**",
+    "src/components/auth/**",
+    "src/components/avantech/**",
+    "src/app/admin/**",
+    "src/app/login/**",
+    "src/app/api/admin/**",
+    "src/app/api/auth/**"
+  ]
 }

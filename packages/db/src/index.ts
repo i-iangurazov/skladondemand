@@ -1,13 +1,5 @@
-import {
-  Prisma,
-  PrismaClient,
-  Locale,
-  UserRole,
-  ImportSourceType,
-  ImportJobStatus,
-  ImportRowStatus,
-} from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 
 export const prisma = new PrismaClient();
-export { Prisma, PrismaClient, Locale, UserRole, ImportSourceType, ImportJobStatus, ImportRowStatus };
+export { Prisma, PrismaClient };
 export type * from '@prisma/client';

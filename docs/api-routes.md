@@ -3,7 +3,6 @@
 This repo contains two API surfaces:
 
 - Next.js app routes (run with `pnpm dev`, base URL `http://localhost:3000`).
-- Fastify API (`apps/api`, run with `pnpm dev:all`, base URL `http://localhost:4000`).
 
 ## Next.js app API (`apps/web/src/app/api`)
 
@@ -80,7 +79,6 @@ Auth: cookie-based DB session created by `/api/auth/login` (cookie name `session
   Body: `{ folderId?: string }`  
   Response: `{ matched, updated, unmatched, skipped, errors, warnings, unmatchedFiles }`
 
-## Fastify API (`apps/api/src/server.ts`)
 
 Auth: Bearer tokens. Staff routes require `Authorization: Bearer <token>` from `/auth/login`.  
 Owner routes require `Authorization: Bearer <token>` from `/owner/login`.

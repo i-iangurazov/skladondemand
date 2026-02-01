@@ -1,26 +1,19 @@
 {
-  "name": "qr-ordering",
+  "name": "skladondemand",
   "private": true,
   "packageManager": "pnpm@10.0.0",
   "engines": {
     "node": "20.x"
   },
   "scripts": {
-    "dev": "turbo dev --filter @qr/web",
+    "dev": "turbo dev --filter @store/web",
     "dev:all": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
-    "typecheck": "turbo typecheck",
-    "postinstall": "if [ -z \"$DATABASE_URL\" ]; then echo \"Skipping prisma generate (no DATABASE_URL)\"; else pnpm --filter @qr/db run prisma:generate; fi",
-    "db:up": "docker compose -f infra/docker/compose.yml up -d",
-    "db:down": "docker compose -f infra/docker/compose.yml down",
-    "db:reset": "docker compose -f infra/docker/compose.yml down -v && docker compose -f infra/docker/compose.yml up -d"
+    "typecheck": "turbo typecheck"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@prisma/client",
-      "prisma",
-      "@prisma/engines",
       "esbuild",
       "sharp",
       "unrs-resolver"
