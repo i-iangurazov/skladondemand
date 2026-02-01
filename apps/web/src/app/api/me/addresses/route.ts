@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { requireUser } from '@/lib/auth/requireUser';
 
@@ -38,7 +37,7 @@ export async function POST(request: Request) {
   }
 
   const data = parsed.data;
-  const created = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
+  const created = await prisma.$transaction(async (tx: any) => {
     if (data.isDefault) {
       await tx.address.updateMany({
         where: { userId: user.id, isDefault: true },

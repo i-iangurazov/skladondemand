@@ -93,7 +93,7 @@ export async function POST(request: Request) {
   const authorName =
     [user.firstName, user.lastName].filter(Boolean).join(' ').trim() || user.email;
 
-  const result = await prisma.$transaction(async (tx) => {
+  const result = await prisma.$transaction(async (tx: any) => {
     const review = await tx.review.create({
       data: {
         userId: user.id,
