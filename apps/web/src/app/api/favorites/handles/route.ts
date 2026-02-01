@@ -6,7 +6,7 @@ export async function GET() {
   const user = await requireUser();
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const items = await prisma.favorite.findMany({
+  const items: Array<{ productHandle: string }> = await prisma.favorite.findMany({
     where: { userId: user.id },
     select: { productHandle: true },
   });

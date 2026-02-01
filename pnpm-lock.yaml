@@ -32,6 +32,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@prisma/client':
+        specifier: ^6.19.1
+        version: 6.19.2(prisma@6.19.2(typescript@5.9.3))(typescript@5.9.3)
       '@qr/db':
         specifier: workspace:*
         version: link:../../packages/db
